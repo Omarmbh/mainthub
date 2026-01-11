@@ -267,7 +267,7 @@ function Dashboard({ showToast }) {
 
     return (
         <>
-            <div style={styles.container}>
+            <div style={styles.container} className="fade-in">
                 <div style={styles.content}>
                     {/* Header */}
                     <div style={styles.header}>

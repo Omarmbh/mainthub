@@ -28,14 +28,24 @@ const styles = {
     }
 };
 
-// Add keyframe animation
-const styleSheet = document.createElement('style');
-styleSheet.textContent = `
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-`;
-document.head.appendChild(styleSheet);
+// Add keyframe animations (only once)
+if (!document.getElementById('app-keyframes')) {
+    const styleSheet = document.createElement('style');
+    styleSheet.id = 'app-keyframes';
+    styleSheet.textContent = `
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 0.2s ease-in-out;
+        }
+    `;
+    document.head.appendChild(styleSheet);
+}
 
 function App() {
     const { user, loading, isAuthenticated } = useAuth();
@@ -62,7 +72,7 @@ function App() {
     }
 
     return (
-        <div style={styles.app}>
+        <div style={styles.app} className="fade-in">
             <Navbar />
             <Dashboard showToast={showToast} />
             {toast && (
