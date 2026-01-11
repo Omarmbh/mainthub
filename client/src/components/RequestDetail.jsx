@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import QuoteCard from './QuoteCard';
 import AuditTimeline from './AuditTimeline';
+import requestsApi from '../api/requests';
+import api from '../api/client';
 
 const styles = {
     container: {
@@ -204,6 +206,62 @@ const styles = {
         padding: 40,
         textAlign: 'center',
         color: '#64748b'
+    },
+    quoteForm: {
+        background: 'rgba(139, 92, 246, 0.1)',
+        border: '1px solid rgba(139, 92, 246, 0.2)',
+        borderRadius: 8,
+        padding: 16,
+        marginBottom: 16
+    },
+    quoteFormTitle: {
+        fontSize: 14,
+        fontWeight: 600,
+        color: '#8b5cf6',
+        marginBottom: 12
+    },
+    formGrid: {
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: 12,
+        marginBottom: 12
+    },
+    formGroup: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 4
+    },
+    formLabel: {
+        fontSize: 11,
+        color: '#94a3b8',
+        textTransform: 'uppercase'
+    },
+    formInput: {
+        padding: '10px 12px',
+        borderRadius: 6,
+        border: '1px solid rgba(148, 163, 184, 0.2)',
+        background: 'rgba(15, 23, 42, 0.5)',
+        color: '#e2e8f0',
+        fontSize: 14
+    },
+    formSelect: {
+        padding: '10px 12px',
+        borderRadius: 6,
+        border: '1px solid rgba(148, 163, 184, 0.2)',
+        background: 'rgba(15, 23, 42, 0.5)',
+        color: '#e2e8f0',
+        fontSize: 14,
+        cursor: 'pointer'
+    },
+    formTextarea: {
+        padding: '10px 12px',
+        borderRadius: 6,
+        border: '1px solid rgba(148, 163, 184, 0.2)',
+        background: 'rgba(15, 23, 42, 0.5)',
+        color: '#e2e8f0',
+        fontSize: 14,
+        resize: 'vertical',
+        minHeight: 60
     }
 };
 
@@ -244,10 +302,60 @@ const formatDate = (dateStr) => {
     });
 };
 
-function RequestDetail({ request, quotes, auditLogs, onAction, onClose }) {
+function RequestDetail({ request, quotes, auditLogs, onAction, onClose, onQuoteAdded }) {
     const { user } = useAuth();
     const [rejectReason, setRejectReason] = useState('');
     const [showRejectInput, setShowRejectInput] = useState(false);
+    const [vendors, setVendors] = useState([]);
+    const [quoteForm, setQuoteForm] = useState({
+        vendor_id: '',
+        amount: '',
+        delivery_days: '',
+        scope: ''
+    });
+    const [addingQuote, setAddingQuote] = useState(false);
+
+    // Fetch vendors for quote form
+    useEffect(() => {
+        const fetchVendors = async () => {
+            try {
+                const response = await api.get('/vendors');
+                setVendors(response.vendors || []);
+            } catch (error) {
+                console.error('Failed to fetch vendors:', error);
+            }
+        };
+        fetchVendors();
+    }, []);
+
+    const handleAddQuote = async () => {
+        if (!quoteForm.vendor_id || !quoteForm.amount) {
+            return;
+        }
+
+        setAddingQuote(true);
+        try {
+            const selectedVendor = vendors.find(v => v.id === parseInt(quoteForm.vendor_id));
+            await requestsApi.addQuote(request.id, {
+                vendor_id: parseInt(quoteForm.vendor_id),
+                vendor_name: selectedVendor?.name || '',
+                vendor_email: selectedVendor?.email || '',
+                amount: parseFloat(quoteForm.amount),
+                delivery_days: parseInt(quoteForm.delivery_days) || 3,
+                scope: quoteForm.scope || 'Standard service'
+            });
+
+            // Reset form
+            setQuoteForm({ vendor_id: '', amount: '', delivery_days: '', scope: '' });
+
+            // Notify parent to refresh
+            onQuoteAdded?.();
+        } catch (error) {
+            console.error('Failed to add quote:', error);
+        } finally {
+            setAddingQuote(false);
+        }
+    };
 
     if (!request) {
         return (
@@ -473,11 +581,82 @@ function RequestDetail({ request, quotes, auditLogs, onAction, onClose }) {
                     </div>
                 )}
 
+                {/* Quote Entry Form for Maintenance */}
+                {user?.role === 'maintenance' && request.status === 'pending_quotes' && (
+                    <div style={styles.section}>
+                        <div style={styles.quoteForm}>
+                            <div style={styles.quoteFormTitle}>Add Vendor Quote</div>
+                            <div style={styles.formGrid}>
+                                <div style={styles.formGroup}>
+                                    <label style={styles.formLabel}>Vendor *</label>
+                                    <select
+                                        style={styles.formSelect}
+                                        value={quoteForm.vendor_id}
+                                        onChange={(e) => setQuoteForm({ ...quoteForm, vendor_id: e.target.value })}
+                                    >
+                                        <option value="">Select vendor...</option>
+                                        {vendors.map(v => (
+                                            <option key={v.id} value={v.id}>{v.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <div style={styles.formGroup}>
+                                    <label style={styles.formLabel}>Amount (AED) *</label>
+                                    <input
+                                        type="number"
+                                        style={styles.formInput}
+                                        placeholder="e.g. 2500"
+                                        value={quoteForm.amount}
+                                        onChange={(e) => setQuoteForm({ ...quoteForm, amount: e.target.value })}
+                                    />
+                                </div>
+                                <div style={styles.formGroup}>
+                                    <label style={styles.formLabel}>Delivery Days</label>
+                                    <input
+                                        type="number"
+                                        style={styles.formInput}
+                                        placeholder="e.g. 3"
+                                        value={quoteForm.delivery_days}
+                                        onChange={(e) => setQuoteForm({ ...quoteForm, delivery_days: e.target.value })}
+                                    />
+                                </div>
+                                <div style={styles.formGroup}>
+                                    <label style={styles.formLabel}>Scope</label>
+                                    <input
+                                        type="text"
+                                        style={styles.formInput}
+                                        placeholder="Brief description..."
+                                        value={quoteForm.scope}
+                                        onChange={(e) => setQuoteForm({ ...quoteForm, scope: e.target.value })}
+                                    />
+                                </div>
+                            </div>
+                            <button
+                                style={{
+                                    ...styles.btn,
+                                    ...styles.btnApprove,
+                                    width: '100%',
+                                    opacity: addingQuote || !quoteForm.vendor_id || !quoteForm.amount ? 0.5 : 1
+                                }}
+                                onClick={handleAddQuote}
+                                disabled={addingQuote || !quoteForm.vendor_id || !quoteForm.amount}
+                            >
+                                {addingQuote ? 'Adding...' : 'Add Quote'}
+                            </button>
+                        </div>
+                    </div>
+                )}
+
                 {/* Quotes Section */}
                 {quotes && quotes.length > 0 && (
                     <div style={styles.section}>
                         <div style={styles.sectionTitle}>
                             Quotes ({quotes.length})
+                            {canSelectQuote && quotes.length > 0 && (
+                                <span style={{ fontWeight: 400, fontSize: 11, marginLeft: 8, color: '#8b5cf6' }}>
+                                    - Click a quote to select it
+                                </span>
+                            )}
                         </div>
                         <div style={styles.quotesGrid}>
                             {quotes.map(quote => (

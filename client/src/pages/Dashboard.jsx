@@ -391,6 +391,13 @@ function Dashboard({ showToast }) {
                             quotes={quotes}
                             auditLogs={auditLogs}
                             onAction={handleAction}
+                            onQuoteAdded={async () => {
+                                await loadRequests();
+                                await loadStats();
+                                if (selectedRequestId) {
+                                    await loadRequestDetail(selectedRequestId);
+                                }
+                            }}
                         />
                     </div>
                 </div>

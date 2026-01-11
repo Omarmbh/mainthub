@@ -3,10 +3,10 @@ import { useEffect } from 'react';
 const styles = {
     container: {
         position: 'fixed',
-        top: 20,
-        right: 20,
+        bottom: 80,
+        right: 24,
         zIndex: 10000,
-        animation: 'slideIn 0.3s ease-out'
+        animation: 'slideUp 0.3s ease-out'
     },
     toast: {
         padding: '12px 20px',
@@ -63,9 +63,9 @@ const styleSheet = document.createElement('style');
 if (!document.querySelector('#toast-styles')) {
     styleSheet.id = 'toast-styles';
     styleSheet.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     `;
     document.head.appendChild(styleSheet);
