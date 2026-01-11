@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
 import LoginPage from './pages/LoginPage';
 import Toast from './components/Toast';
+import FloatingGuideButton from './components/FloatingGuideButton';
 
 const styles = {
     app: {
@@ -82,6 +83,7 @@ function App() {
                     onClose={hideToast}
                 />
             )}
+            <FloatingGuideButton />
         </div>
     );
 }

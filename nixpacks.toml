@@ -1,3 +1,12 @@
+# Railway/Nixpacks configuration for BHP Maintenance Hub
+#
+# IMPORTANT: For data persistence, you must configure a Railway Volume:
+# 1. In Railway dashboard, go to your service
+# 2. Add a Volume with mount path: /data
+# 3. Add environment variable: DATA_DIR=/data
+#
+# Without this, the SQLite database will be reset on each deploy.
+
 [phases.setup]
 nixPkgs = ["nodejs_18", "npm-9_x"]
 
@@ -5,7 +14,7 @@ nixPkgs = ["nodejs_18", "npm-9_x"]
 cmds = ["npm ci"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["npm run build", "mkdir -p /data"]
 
 [start]
 cmd = "npm run start"
