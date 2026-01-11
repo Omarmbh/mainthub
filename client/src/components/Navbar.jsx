@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import authApi from '../api/auth';
+import Logo from './Logo';
 
 const styles = {
     navbar: {
@@ -8,10 +9,10 @@ const styles = {
         top: 0,
         left: 0,
         right: 0,
-        height: 64,
-        background: 'rgba(15, 23, 42, 0.95)',
+        height: 70,
+        background: 'rgba(255, 255, 255, 0.98)',
         backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(148, 163, 184, 0.1)',
+        borderBottom: '1px solid rgba(148, 163, 184, 0.2)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -20,27 +21,7 @@ const styles = {
     },
     logoSection: {
         display: 'flex',
-        alignItems: 'center',
-        gap: 12
-    },
-    logoMark: {
-        width: 36,
-        height: 36,
-        background: 'linear-gradient(135deg, #14b8a6, #3b82f6)',
-        borderRadius: 8,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontWeight: 700,
-        fontSize: 11,
-        color: '#fff'
-    },
-    logoText: {
-        fontFamily: "'JetBrains Mono', monospace",
-        fontWeight: 600,
-        fontSize: 16,
-        color: '#e2e8f0',
-        letterSpacing: 1
+        alignItems: 'center'
     },
     rightSection: {
         display: 'flex',
@@ -102,11 +83,11 @@ const styles = {
     userName: {
         fontSize: 13,
         fontWeight: 500,
-        color: '#e2e8f0'
+        color: '#1e293b'
     },
     userRole: {
         fontSize: 11,
-        color: '#94a3b8',
+        color: '#64748b',
         marginTop: 2
     },
     roleBadge: {
@@ -140,11 +121,11 @@ const styles = {
     currentUserName: {
         fontSize: 14,
         fontWeight: 500,
-        color: '#e2e8f0'
+        color: '#1e293b'
     },
     currentUserRole: {
         fontSize: 11,
-        color: '#94a3b8',
+        color: '#64748b',
         fontFamily: "'JetBrains Mono', monospace"
     },
     logoutBtn: {
@@ -204,8 +185,7 @@ function Navbar() {
     return (
         <nav style={styles.navbar}>
             <div style={styles.logoSection}>
-                <div style={styles.logoMark}>BHP</div>
-                <span style={styles.logoText}>Maintenance Hub</span>
+                <Logo size="small" />
             </div>
 
             <div style={styles.rightSection}>
