@@ -13,12 +13,14 @@
     "vercel-build": "npm run build --prefix client"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^9.4.3",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-session": "^1.17.3"
+  },
+  "optionalDependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^9.4.3"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
