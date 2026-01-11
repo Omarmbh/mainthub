@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { useAuth } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
@@ -51,13 +51,13 @@ function App() {
     const { user, loading, isAuthenticated } = useAuth();
     const [toast, setToast] = useState(null);
 
-    const showToast = (message, type = 'success') => {
+    const showToast = useCallback((message, type = 'success') => {
         setToast({ message, type });
-    };
+    }, []);
 
-    const hideToast = () => {
+    const hideToast = useCallback(() => {
         setToast(null);
-    };
+    }, []);
 
     if (loading) {
         return (
