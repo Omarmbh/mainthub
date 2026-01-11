@@ -4,6 +4,7 @@ import MetricCard from '../components/MetricCard';
 import RequestList from '../components/RequestList';
 import RequestDetail from '../components/RequestDetail';
 import NewRequestModal from '../components/NewRequestModal';
+import WorkflowGuide from '../components/WorkflowGuide';
 import requestsApi from '../api/requests';
 
 const styles = {
@@ -124,6 +125,7 @@ function Dashboard({ showToast }) {
     const [auditLogs, setAuditLogs] = useState([]);
     const [filter, setFilter] = useState('all');
     const [showNewRequestModal, setShowNewRequestModal] = useState(false);
+    const [showWorkflowGuide, setShowWorkflowGuide] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const loadRequests = useCallback(async () => {
@@ -353,7 +355,27 @@ function Dashboard({ showToast }) {
                                 Process Payments
                             </button>
                         )}
+                        <button
+                            style={{
+                                ...styles.actionBtn,
+                                background: showWorkflowGuide ? 'rgba(245, 158, 11, 0.15)' : 'rgba(148, 163, 184, 0.1)',
+                                border: showWorkflowGuide ? '1px solid rgba(245, 158, 11, 0.3)' : '1px solid rgba(148, 163, 184, 0.2)',
+                                color: showWorkflowGuide ? '#f59e0b' : '#94a3b8',
+                                marginLeft: 'auto'
+                            }}
+                            onClick={() => setShowWorkflowGuide(!showWorkflowGuide)}
+                        >
+                            {showWorkflowGuide ? 'Hide Guide' : 'Workflow Guide'}
+                        </button>
                     </div>
+
+                    {/* Workflow Guide - show when toggled or when no requests */}
+                    {(showWorkflowGuide || requests.length === 0) && (
+                        <WorkflowGuide
+                            collapsed={requests.length > 0 && !showWorkflowGuide}
+                            onToggle={setShowWorkflowGuide}
+                        />
+                    )}
 
                     {/* Main Content Grid */}
                     <div style={styles.mainGrid}>
