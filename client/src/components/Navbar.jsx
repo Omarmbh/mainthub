@@ -9,10 +9,10 @@ const styles = {
         top: 0,
         left: 0,
         right: 0,
-        height: 70,
-        background: 'rgba(255, 255, 255, 0.98)',
+        height: 64,
+        background: 'rgba(15, 23, 42, 0.95)',
         backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid rgba(148, 163, 184, 0.2)',
+        borderBottom: '1px solid rgba(148, 163, 184, 0.1)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -83,11 +83,11 @@ const styles = {
     userName: {
         fontSize: 13,
         fontWeight: 500,
-        color: '#1e293b'
+        color: '#e2e8f0'
     },
     userRole: {
         fontSize: 11,
-        color: '#64748b',
+        color: '#94a3b8',
         marginTop: 2
     },
     roleBadge: {
@@ -121,11 +121,11 @@ const styles = {
     currentUserName: {
         fontSize: 14,
         fontWeight: 500,
-        color: '#1e293b'
+        color: '#e2e8f0'
     },
     currentUserRole: {
         fontSize: 11,
-        color: '#64748b',
+        color: '#94a3b8',
         fontFamily: "'JetBrains Mono', monospace"
     },
     logoutBtn: {
