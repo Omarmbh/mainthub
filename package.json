@@ -4,13 +4,16 @@
   "description": "BHP Real Estate Holdings Maintenance Request Management System",
   "main": "server/index.js",
   "type": "module",
+  "private": true,
+  "workspaces": [
+    "client"
+  ],
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
-    "client": "npm run dev --prefix client",
-    "build": "npm install --prefix client && npm run build --prefix client",
-    "start": "NODE_ENV=production node server/index.js",
-    "vercel-build": "npm run build --prefix client"
+    "client": "npm run dev -w client",
+    "build": "npm run build -w client",
+    "start": "NODE_ENV=production node server/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
