@@ -109,10 +109,10 @@ add(f'''<div class="slide">
     <div class="stat"><div class="sl">Retail per resident, 2030</div><div class="sv">1.1</div><div class="sc">sqm, Plan Al Ain 2030 target</div></div>
   </div>
   <div class="points" style="margin-top:34px">
-    <div class="pt"><div class="ph">Quiet, multi-generational wealth.</div><div class="pb">Owner-occupier Emirati villa households in Al Towayya, Asharej, Falaj Hazzaa and Al Jimi. Low speculative volatility, deep end-user demand.</div></div>
-    <div class="pt"><div class="ph">A committed villa pipeline.</div><div class="pb">10,316 villas across five developments sit inside the AED 106bn Abu Dhabi housing programme, with Aldar's Al Oyoun Village among the Al Ain assets.</div></div>
-    <div class="pt"><div class="ph">A tourism spine, growing fast.</div><div class="pb">473,100 hotel guests in FY2025, up 9%. DCT positions Al Ain on culture, wellness and adventure: Jebel Hafeet, the UNESCO oases, Green Mubazzarah.</div></div>
-    <div class="pt"><div class="ph">Enclosed malls only.</div><div class="pb">Roughly seven hypermarket-anchored malls, repetitive anchors, and no operating open-air lifestyle destination in the city.</div></div>
+    <div class="pt"><div class="ph">Owner-occupier Emirati wealth.</div><div class="pb">Villa households across Al Towayya, Asharej, Falaj Hazzaa and Al Jimi. End-user demand, low speculative volatility.</div></div>
+    <div class="pt"><div class="ph">A committed villa pipeline.</div><div class="pb">10,316 villas across five developments inside the AED 106bn Abu Dhabi housing programme, Aldar's Al Oyoun Village among them.</div></div>
+    <div class="pt"><div class="ph">A fast-growing tourism spine.</div><div class="pb">473,100 hotel guests in FY2025, up 9%. DCT positions Al Ain on culture, wellness and adventure: Jebel Hafeet, the UNESCO oases, Green Mubazzarah.</div></div>
+    <div class="pt"><div class="ph">Enclosed malls only.</div><div class="pb">Roughly seven hypermarket-anchored malls, repetitive anchors, no open-air lifestyle destination in the city.</div></div>
   </div>
   <div class="src">Sources: SCAD 2024; Bayut 2025 listings; Plan Al Ain 2030 / Aldar 2016; Abu Dhabi Media Office &amp; DCT 2025; Arabian Post 2026. Villa pricing is asking, not registered transactions.</div>
   {foot("04")}
@@ -212,23 +212,23 @@ add(f'''<div class="slide">
 vol_alain = [
  ("GYM & WELLNESS","steel portal hangar", TEAL, 80, 250, 70, 115),
  ("GALLERY","seam", GOLD, 350, 90, 88, 80),
- ("FINE-DINING HALL","brick · tile · glazing", CLAY, 460, 290, 60, 135),
+ ("FINE-DINING HALL","destination anchor", CLAY, 460, 290, 60, 135),
  ("GALLERY","seam", GOLD, 770, 90, 88, 80),
  ("SPECIALTY GROCER","fresh market", RUST, 880, 250, 70, 115),
 ]
 add(f'''<div class="slide panel">
-  {header("6 · THE PARTI &amp; MATERIAL","Three volumes,","tuned for permanence.",
-   "Gym hangar tilted west, fine-dining hall and terraces on axis, specialty grocer tilted east, with gallery seams between. Parking and landscape ribbon north and south.")}
+  {header("6 · THE PARTI &amp; BUILD LOGIC","One shell,","the mix is the lever.",
+   "Gym hangar tilted west, fine-dining hall on axis, specialty grocer tilted east, with gallery seams between. The envelope is held constant and cheap; the tenant mix does the work.")}
   <div style="margin-top:14px;background:var(--white);border:1px solid var(--line);padding:12px 16px">{parti(vol_alain)}</div>
   <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:30px;margin-top:14px">
     <div>
-      <div class="lbl">Material tilt · steel to concrete</div>
-      <div class="ratio"><div class="steel" style="width:55%">STEEL 55</div><div class="conc" style="width:45%">CONCRETE / STONE 45</div></div>
-      <div class="cb" style="margin-top:8px;color:#6B655D">A warmer tilt than Sharjah: gabion stone, brick and masonry give the fine-dining hall its permanence, while the steel portal keeps the Musataha economics intact.</div>
+      <div class="lbl">Shell · constant, income-optimised</div>
+      <div class="ratio"><div class="steel" style="width:84%">STEEL-LED SHELL</div><div class="conc" style="width:16%">FIT-OUT</div></div>
+      <div class="cb" style="margin-top:8px;color:#6B655D">Identical to Sharjah: steel portal frame, lightweight envelope, slab on grade, build matched to the usufruct. Income clears the hurdle, so no masonry premium is chased.</div>
     </div>
     <div>
-      <div class="lbl">Why this ratio</div>
-      <div class="cb" style="color:#6B655D">Fine dining rewards permanence and ambience. Tilting toward stone and brick lifts the perceived quality of the destination hall, where the gym hangar and back-of-house stay light, fast and steel-led.</div>
+      <div class="lbl">The only tilt · minor, tenant-led</div>
+      <div class="cb" style="color:#6B655D">Fit-out concentrates where rent pays for it: the fine-dining hall. Wellness directs spend to MEP, not finishes. The lever is tenant selection, not structure.</div>
     </div>
   </div>
   {foot("09")}
@@ -350,23 +350,23 @@ add(f'''<div class="slide">
 vol_ad = [
  ("GYM & WELLNESS","wellness pavilion", TEAL, 80, 250, 70, 115),
  ("GALLERY","seam", GOLD, 350, 90, 88, 80),
- ("CURATED FOOD HALL","brick · timber · glazed", CLAY, 460, 290, 60, 135),
+ ("CURATED FOOD HALL","destination anchor", CLAY, 460, 290, 60, 135),
  ("GALLERY","seam", GOLD, 770, 90, 88, 80),
- ("MEMBERS' CLUB","crafted · bronze", SAGE, 880, 250, 70, 115),
+ ("MEMBERS' CLUB","members lounge", SAGE, 880, 250, 70, 115),
 ]
 add(f'''<div class="slide panel">
-  {header("6 · THE PARTI &amp; MATERIAL","Three volumes,","crafted and daylit.",
-   "Wellness and fitness tilted west, the curated food hall on axis, the members' club tilted east, with gallery seams between. Arrival, valet and parking ribbon to the south.")}
+  {header("6 · THE PARTI &amp; BUILD LOGIC","One shell,","the mix is the lever.",
+   "Wellness and fitness tilted west, the curated food hall on axis, the members' club tilted east, with gallery seams between. Same constant envelope as Al Ain; the tenant mix does the work.")}
   <div style="margin-top:14px;background:var(--white);border:1px solid var(--line);padding:12px 16px">{parti(vol_ad, "ARRIVAL &amp; LANDSCAPE FORECOURT · NORTH")}</div>
   <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:30px;margin-top:14px">
     <div>
-      <div class="lbl">Material tilt · steel to concrete</div>
-      <div class="ratio"><div class="steel" style="width:65%">STEEL 65</div><div class="conc" style="width:35%">CONCRETE / CRAFT 35</div></div>
-      <div class="cb" style="margin-top:8px;color:#6B655D">A steel frame with crafted brick, timber and bronze in the club and food hall, and clean glazing across the wellness pavilion. Lighter than the Al Ain stone.</div>
+      <div class="lbl">Shell · constant, income-optimised</div>
+      <div class="ratio"><div class="steel" style="width:84%">STEEL-LED SHELL</div><div class="conc" style="width:16%">FIT-OUT</div></div>
+      <div class="cb" style="margin-top:8px;color:#6B655D">The same steel portal shell and lightweight envelope as Al Ain. The usufruct is cleared by income, so the envelope stays cheap and fast in both cities.</div>
     </div>
     <div>
-      <div class="lbl">Why this ratio</div>
-      <div class="cb" style="color:#6B655D">A members' club and food hall reward warmth and material craft; the wellness pavilion rewards light and air. The steel portal keeps the build fast and the Musataha economics intact across both.</div>
+      <div class="lbl">The only tilt · minor, tenant-led</div>
+      <div class="cb" style="color:#6B655D">Fit-out concentrates on the members' club and food hall, where rent and membership pay for it. The wellness pavilion spends on MEP. The lever is tenant selection, not structure.</div>
     </div>
   </div>
   {foot("16")}
@@ -384,7 +384,8 @@ add(f'''<div class="slide">
     <tr><td class="cat">Catchment</td><td>~48K Emirati villa, Y5</td><td>~987K region, ~31% National</td><td>Capital wealth &amp; culture spine</td></tr>
     <tr><td class="cat">Whitespace</td><td>F&amp;B, gym, grocer, wellness</td><td>Fine dining, gym + longevity</td><td>Social club, food hall, longevity</td></tr>
     <tr><td class="cat">Concept anchor</td><td>Market hall + wellness hangar</td><td>Fine-dining hall + wellness hangar</td><td>Social &amp; wellness house</td></tr>
-    <tr><td class="cat">Material tilt</td><td>Steel led, ~60:40</td><td>Steel + stone, ~55:45</td><td>Steel + craft, ~65:35</td></tr>
+    <tr><td class="cat">Shell (constant)</td><td>Steel-led, income-optimised</td><td>Steel-led, income-optimised</td><td>Steel-led, income-optimised</td></tr>
+    <tr><td class="cat">Fit-out tilt (minor)</td><td>Standard</td><td>To the fine-dining hall</td><td>To the club and food hall</td></tr>
     </tbody>
   </table>
   {foot("17")}
@@ -401,6 +402,59 @@ add(f'''<div class="slide dark">
     <p class="subhead" style="margin-top:24px;max-width:9in;color:#9FCFD0">Both on the same industrial-village typology and Musataha logic. Next step: site selection and plot-specific massing per city, then catchment isochrones on the confirmed parcels.</p>
   </div>
   {foot("18","AFHAD PROPERTIES")}
+</div>''')
+
+# ---------- SOURCES / CITATIONS (appendix) ----------
+refgroups = [
+ ("Official statistics &amp; government", [
+   ("Statistics Centre Abu Dhabi (SCAD).", "2024. Population estimates, Abu Dhabi Emirate and Al Ain Region. scad.gov.ae"),
+   ("Department of Health, Abu Dhabi (DoH).", "2024 to 2025. Healthy Longevity Medicine Centre licensing; ABA guidelines for ASD; births and IVF data. doh.gov.ae"),
+   ("Department of Culture and Tourism, Abu Dhabi (DCT).", "2025 to 2026. Tourism Strategy 2030; 2025 Annual Report; Al Ain visitor data. dctabudhabi.ae"),
+   ("Abu Dhabi Media Office.", "2024 to 2025. Al Ain tourism performance and development announcements. mediaoffice.abudhabi"),
+   ("Abu Dhabi Sports Council.", "2025. Physical activity participation rate."),
+   ("Abu Dhabi Real Estate Centre (ADREC).", "2025. Abu Dhabi Real Estate Market Report 2025."),
+   ("Zayed Higher Organization (ZHO).", "2024. Autism services enrolment. zho.gov.ae"),
+   ("World Bank.", "2023. Fertility rate, total, United Arab Emirates. data.worldbank.org"),
+ ]),
+ ("Real estate &amp; retail research", [
+   ("Cavendish Maxwell.", "Q3 2025. Abu Dhabi Residential Market Report."),
+   ("CBRE.", "Q2 to Q4 2025. UAE Real Estate Market Review."),
+   ("JLL.", "Q2 2025 to Q1 2026. UAE Retail and Living Market Dynamics."),
+   ("UBS Global Research.", "22 April 2026. MENA Real Estate."),
+   ("Aldar Properties.", "2026. Q4 FY2025 results and investor materials. aldar.com"),
+   ("Urban Planning Council.", "2016. Plan Al Ain 2030 (retail-density target)."),
+ ]),
+ ("Health, wealth &amp; sport", [
+   ("M42.", "2025. Omics Centre and Emirati Genome Programme. m42.ae"),
+   ("Cleveland Clinic Abu Dhabi.", "2025. International patient volumes."),
+   ("Abu Dhabi Global Market (ADGM).", "2026. Decade performance update. adgm.com"),
+   ("Henley &amp; Partners.", "2025. Private Wealth Migration Report. henleyglobal.com"),
+   ("Euromonitor International.", "2024. UAE household and consumer data."),
+ ]),
+ ("Tourism, culture &amp; F&amp;B", [
+   ("MICHELIN Guide.", "2026. Abu Dhabi and Dubai selections. guide.michelin.com"),
+   ("Louvre Abu Dhabi.", "2025. Visitor figures. louvreabudhabi.ae"),
+   ("Abu Dhabi Chamber.", "2024 to 2026. F&amp;B licences and sector revenue."),
+   ("Time Out.", "2025 to 2026. Time Out Market Abu Dhabi; city market guides."),
+ ]),
+ ("Property portals &amp; press", [
+   ("Bayut.", "2025. Al Ain area guides and asking prices. bayut.com"),
+   ("Property Finder.", "2025. Abu Dhabi community and project data. propertyfinder.ae"),
+   ("Gold's Gym UAE; GymNation.", "2026. Facility information."),
+   ("The National; Gulf News; Khaleej Times; Arabian Post; Gulf Business.", "2023 to 2026. Market and project reporting."),
+ ]),
+]
+refhtml=""
+for gi,(g,items) in enumerate(refgroups):
+    refhtml+=f'<div class="refgrp{" first" if gi==0 else ""}">{g}</div>'
+    for o,rest in items:
+        refhtml+=f'<div class="ref"><span class="o">{o}</span> {rest}</div>'
+add(f'''<div class="slide">
+  {header("APPENDIX · DATA SOURCES","Sources and citations,","for audit.",
+   "Every figure on the preceding slides is drawn from the sources below. Data is dated 2024 to 2026 unless stated.")}
+  <div class="refwrap">{refhtml}</div>
+  <div class="refnote">Items flagged on-slide as estimates or triangulated, including Al Ain fine-dining venue counts, retail per-capita ratios, and autism prevalence, should be confirmed against the primary source before capital deployment. Where a single organisation issues periodic reports, the quarter or edition used is noted inline.</div>
+  {foot("19")}
 </div>''')
 
 # ================================================================ ASSEMBLE

@@ -132,6 +132,15 @@ table.grid td.cat{ font-family:'Fraunces'; font-weight:600; color:var(--teal-dee
 .barrow .bfill{ height:100%; background:var(--teal); }
 .barrow .bval{ width:0.9in; text-align:right; font-family:'Fraunces'; font-weight:700; font-size:13px; color:var(--teal-deep); }
 
+/* ---- references / sources ---- */
+.refwrap{ column-count:2; column-gap:46px; margin-top:18px; }
+.refgrp{ font-family:'Archivo'; font-weight:700; font-size:9.5px; letter-spacing:2px;
+  text-transform:uppercase; color:var(--teal); margin:12px 0 5px; break-inside:avoid; }
+.refgrp.first{ margin-top:0; }
+.ref{ font-size:9.5px; color:var(--ink); line-height:1.4; margin:0 0 4px; break-inside:avoid; padding-left:12px; text-indent:-12px; }
+.ref .o{ font-weight:600; }
+.refnote{ font-size:9px; color:var(--stone); font-style:italic; margin-top:14px; line-height:1.45; }
+
 /* ---- material ratio ---- */
 .ratio{ display:flex; height:54px; border:1px solid var(--line); margin-top:8px; }
 .ratio .steel{ background:var(--teal-deep); color:#fff; }

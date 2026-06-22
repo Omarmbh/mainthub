@@ -5,8 +5,14 @@ Board-grade pre-concept briefs that re-run the Sharjah "The Ranch" framework
 cities. Tenure and macro are held constant; location, catchment and whitespace
 are re-run from current data, and the tenant-mix concept follows.
 
-## Deliverable
-`The_Ranch_Al_Ain_Abu_Dhabi_Pre-Concept_Briefs.pdf` (18 slides, 16:9 landscape).
+## Deliverables
+- `The_Ranch_Al_Ain_Abu_Dhabi_Pre-Concept_Briefs.pdf` (19 slides, 16:9, pixel-perfect reference).
+- `The_Ranch_Al_Ain_Abu_Dhabi_Pre-Concept_Briefs.pptx` (same deck, fully editable native
+  PowerPoint, with Fraunces and Archivo embedded so it renders correctly on any machine).
+
+Both end with a `Data sources` appendix carrying professional citations for audit. The
+material decision is framed economically: a constant, income-optimised steel-led shell across
+all three cities, with only a minor, tenant-led fit-out tilt. Tenant selection is the lever.
 
 - **Al Ain**: fine-dining market hall plus a world-class wellness hangar with
   integrated longevity and recovery. The fine-dining mandate is verified against
